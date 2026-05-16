@@ -1,0 +1,192 @@
+/* ============================================================
+   main.css — Stylesheet utama OMM-App Toko Bangunan
+   ============================================================ */
+
+:root {
+    --btj-primary:   #1a6b3c;
+    --btj-secondary: #f5a623;
+    --btj-accent:    #e8f5e9;
+    --btj-dark:      #0d3d22;
+    --btj-sidebar-w: 260px;
+}
+
+/* ---------- Base ---------- */
+body {
+    font-family: 'Nunito', sans-serif;
+    background: #f4f6f8;
+}
+
+/* ---------- Header ---------- */
+#header {
+    background: linear-gradient(135deg, var(--btj-dark) 0%, var(--btj-primary) 100%);
+    height: 60px;
+    padding: 0 20px;
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 997;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.25);
+}
+.logo-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+.logo-icon {
+    width: 36px; height: 36px;
+    background: var(--btj-secondary);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem;
+    color: #fff;
+}
+.logo-text  { color: #fff; font-weight: 800; font-size: 1rem; line-height: 1.1; }
+.logo-sub   { color: rgba(255,255,255,0.7); font-size: 0.7rem; font-weight: 400; }
+.toggle-sidebar-btn {
+    color: rgba(255,255,255,0.8);
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin-left: 15px;
+}
+.toggle-sidebar-btn:hover { color: var(--btj-secondary); }
+.header-nav { margin-left: auto; }
+.header-nav .nav-item a {
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    display: flex; align-items: center; gap: 6px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    transition: all 0.2s;
+}
+.header-nav .nav-item a:hover {
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+}
+.user-badge {
+    background: rgba(255,255,255,0.2);
+    border-radius: 20px;
+    padding: 4px 12px;
+    color: #fff;
+    font-size: 0.82rem;
+    display: flex; align-items: center; gap: 6px;
+}
+
+/* ---------- Sidebar ---------- */
+#sidebar {
+    position: fixed;
+    top: 60px; left: 0; bottom: 0;
+    width: var(--btj-sidebar-w);
+    background: #fff;
+    border-right: 1px solid #e9ecef;
+    overflow-y: auto;
+    z-index: 996;
+    transition: all 0.3s;
+    box-shadow: 3px 0 10px rgba(0,0,0,0.05);
+}
+#sidebar.hide { left: calc(-1 * var(--btj-sidebar-w)); }
+.sidebar-nav { padding: 10px 0; list-style: none; margin: 0; }
+.sidebar-nav .nav-item { margin: 2px 8px; }
+.sidebar-nav .nav-link {
+    display: flex; align-items: center; gap: 10px;
+    color: #444;
+    padding: 9px 14px;
+    border-radius: 8px;
+    font-size: 0.875rem; font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+.sidebar-nav .nav-link:hover  { background: var(--btj-accent); color: var(--btj-primary); }
+.sidebar-nav .nav-link.active { background: var(--btj-primary); color: #fff; }
+.sidebar-nav .nav-link i { font-size: 1.1rem; min-width: 22px; }
+.nav-section {
+    font-size: 0.7rem; font-weight: 700;
+    text-transform: uppercase;
+    color: #aaa;
+    padding: 14px 22px 4px;
+    letter-spacing: 0.8px;
+}
+#sidebar::-webkit-scrollbar       { width: 4px; }
+#sidebar::-webkit-scrollbar-thumb { background: #ddd; border-radius: 4px; }
+
+/* ---------- Main content ---------- */
+#main {
+    margin-left: var(--btj-sidebar-w);
+    margin-top: 60px;
+    padding: 20px;
+    transition: all 0.3s;
+    min-height: calc(100vh - 60px);
+}
+#main.full { margin-left: 0; }
+
+/* ---------- Cards ---------- */
+.card {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+}
+.card-header {
+    border-radius: 12px 12px 0 0 !important;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+/* ---------- Stat Cards ---------- */
+.stat-card {
+    border-radius: 12px;
+    padding: 20px;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+}
+.stat-card .stat-icon {
+    position: absolute;
+    right: 15px; top: 50%;
+    transform: translateY(-50%);
+    font-size: 3.5rem;
+    opacity: 0.2;
+}
+.stat-card .stat-val   { font-size: 1.8rem; font-weight: 800; }
+.stat-card .stat-label { font-size: 0.82rem; opacity: 0.85; }
+
+/* Stat card colour variants */
+.bg-btj-green  { background: linear-gradient(135deg, #1a6b3c, #27ae60); }
+.bg-btj-orange { background: linear-gradient(135deg, #e67e22, #f39c12); }
+.bg-btj-blue   { background: linear-gradient(135deg, #2980b9, #3498db); }
+.bg-btj-red    { background: linear-gradient(135deg, #c0392b, #e74c3c); }
+.bg-btj-purple { background: linear-gradient(135deg, #7d3c98, #9b59b6); }
+.bg-btj-teal   { background: linear-gradient(135deg, #148f77, #1abc9c); }
+
+/* ---------- Table ---------- */
+.table { font-size: 0.875rem; }
+.table thead th {
+    background: var(--btj-accent);
+    color: var(--btj-primary);
+    font-weight: 700;
+    border: none;
+}
+.table-hover tbody tr:hover { background: #f0f9f4; }
+
+/* ---------- Buttons ---------- */
+.btn-btj         { background: var(--btj-primary); color: #fff; }
+.btn-btj:hover   { background: var(--btj-dark); color: #fff; }
+.btn-outline-btj { border-color: var(--btj-primary); color: var(--btj-primary); }
+.btn-outline-btj:hover { background: var(--btj-primary); color: #fff; }
+
+/* ---------- Typography ---------- */
+.page-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    color: var(--btj-primary);
+    margin-bottom: 4px;
+}
+.page-breadcrumb { color: #888; font-size: 0.83rem; }
+.page-breadcrumb a { color: var(--btj-primary); text-decoration: none; }
+.badge { font-size: 0.75rem; padding: 5px 10px; border-radius: 20px; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+    #sidebar         { left: calc(-1 * var(--btj-sidebar-w)); }
+    #sidebar.show    { left: 0; }
+    #main            { margin-left: 0; }
+}
